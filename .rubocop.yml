@@ -1,0 +1,14 @@
+inherit_from: .rubocop_todo.yml
+
+Rails:
+  Enabled: true
+Style/Documentation:
+  Enabled: false
+Style/FrozenStringLiteralComment:
+  Enabled: false
+Style/AsciiComments:
+  Enabled: false
+Style/PercentLiteralDelimiters:
+  Enabled: false
+Metrics/LineLength:
+  Max: 120
