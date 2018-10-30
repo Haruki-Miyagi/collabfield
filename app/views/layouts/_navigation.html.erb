@@ -1,24 +1,26 @@
 <!-- views/layouts/_navigation.html.erb -->
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <!-- ブランド表示と、モバイル表示切り替え用のグループ化 -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <%= link_to 'collabfield', root_path, class: 'navbar-brand' %>
-    </div>
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="container-fluid">
+      <!-- ブランド表示と、モバイル表示切り替え用のグループ化 -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <%= link_to 'collabfield', root_path, class: 'navbar-brand' %>
+      </div>
 
-    <!-- ナビゲーションリンク/フォームなどのコンテンツをここにまとめて表示をオンオフできるようにする -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-      </ul>
+      <!-- ナビゲーションリンク/フォームなどのコンテンツをここにまとめて表示をオンオフできるようにする -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+        </ul>
 
-      <ul class="nav navbar-nav navbar-right">
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
+        <ul class="nav navbar-nav navbar-right">
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </div>
 </nav>
