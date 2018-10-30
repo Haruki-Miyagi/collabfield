@@ -57,6 +57,8 @@ GEM
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
+    bootstrap_form (4.0.0)
+      rails (>= 5.0)
     builder (3.2.3)
     byebug (10.0.2)
     capybara (3.10.0)
@@ -102,6 +104,7 @@ GEM
     i18n (1.1.1)
       concurrent-ruby (~> 1.0)
     io-like (0.3.0)
+    jaro_winkler (1.5.1)
     jaro_winkler (1.5.1-x86_64-darwin-17)
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
@@ -271,6 +274,7 @@ PLATFORMS
 DEPENDENCIES
   bootsnap (>= 1.1.0)
   bootstrap-sass
+  bootstrap_form
   byebug
   capybara (>= 2.15)
   chromedriver-helper
