@@ -12,4 +12,7 @@
 
 // Partials - メインのcssファイル
 @import "partials/*";
-@import "partials/layout/*"
+@import "partials/layout/*";
+
+// メディアクエリ（レスポンシブデザイン用）
+@import "responsive/*";
