@@ -4,6 +4,15 @@
 
 // Variables
 @import "base/variables";
+// Default styles
+@import "base/default";
 
 // Partials - メインのcssファイル
 @import "partials/layout/*";
+
+// Partials - メインのcssファイル
+@import "partials/*";
+@import "partials/layout/*";
+
+// メディアクエリ（レスポンシブデザイン用）
+@import "responsive/*";
