@@ -8,11 +8,9 @@
 @import "base/default";
 
 // Partials - メインのcssファイル
-@import "partials/layout/*";
-
-// Partials - メインのcssファイル
 @import "partials/*";
 @import "partials/layout/*";
+@import "partials/posts/*";
 
 // メディアクエリ（レスポンシブデザイン用）
 @import "responsive/*";
