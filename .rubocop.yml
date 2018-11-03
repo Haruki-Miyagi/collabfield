@@ -10,6 +10,8 @@ AllCops:
     - Gemfile
 Rails:
   Enabled: true
+AccessorMethodName:
+  Enabled: false
 Style/Documentation:
   Enabled: false
 Style/FrozenStringLiteralComment:
