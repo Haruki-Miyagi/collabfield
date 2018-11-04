@@ -22,19 +22,19 @@ class PostsController < ApplicationController
     @posts = get_posts.paginate(page: params[:page])
   end
 
-  def get_posts
+  def get_posts # rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/MethodLength, Metrics/PerceivedComplexity
     branch = params[:action]
     search = params[:search]
     category = params[:category]
 
     if category.blank? && search.blank?
-      posts = Post.by_branch(branch).all
+      Post.by_branch(branch).all
     elsif category.blank? && search.present?
-      posts = Post.by_branch(branch).search(search)
+      Post.by_branch(branch).search(search)
     elsif category.present? && search.blank?
-      posts = Post.by_category(branch, category)
+      Post.by_category(branch, category)
     elsif category.present? && search.present?
-      posts = Post.by_category(branch, category).search(search)
+      Post.by_category(branch, category).search(search)
     end
   end
 end
