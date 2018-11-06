@@ -26,19 +26,11 @@ class PostsController < ApplicationController
     end
   end
 
-  def get_posts # rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/MethodLength, Metrics/PerceivedComplexity
-    branch = params[:action]
-    search = params[:search]
-    category = params[:category]
-
-    if category.blank? && search.blank?
-      Post.by_branch(branch).all
-    elsif category.blank? && search.present?
-      Post.by_branch(branch).search(search)
-    elsif category.present? && search.blank?
-      Post.by_category(branch, category)
-    elsif category.present? && search.present?
-      Post.by_category(branch, category).search(search)
-    end
+  def get_posts
+    PostsForBranchService.new(
+      search: params[:search],
+      category: params[:category],
+      branch: params[:action]
+    ).call
   end
 end
