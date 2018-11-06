@@ -28,7 +28,7 @@ RSpec.describe PostsHelper, type: :helper do # rubocop:disable Metrics/BlockLeng
   context '#no_posts_partial_path' do
     it "returns a no_posts partial's path" do
       assign(:posts, [])
-      expect(helper.no_posts_partial_path([])).to eq('posts/branch/no_posts')
+      expect(helper.no_posts_partial_path([])).to eq('posts/shared/no_posts')
     end
 
     it "returns an empty partial's path" do
@@ -46,6 +46,20 @@ RSpec.describe PostsHelper, type: :helper do # rubocop:disable Metrics/BlockLeng
     it "returns a branch_page partial's path" do
       allow(helper).to receive(:current_page?).and_return(false)
       expect(helper.post_format_partial_path).to eq('posts/post/branch_page')
+    end
+  end
+
+  context '#update_pagination_partial_path' do
+    it "returns an update_pagination partial's path" do
+      posts = double('posts', next_page: 2)
+      assign(:posts, posts)
+      expect(helper.update_pagination_partial_path).to eq('posts/posts_pagination_page/update_pagination')
+    end
+
+    it "returns a remove_pagination partial's path" do
+      posts = double('posts', next_page: nil)
+      assign(:posts, posts)
+      expect(helper.update_pagination_partial_path).to eq('posts/posts_pagination_page/remove_pagination')
     end
   end
 end
