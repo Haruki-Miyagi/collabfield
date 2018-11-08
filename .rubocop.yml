@@ -10,15 +10,24 @@ AllCops:
     - Gemfile
 Rails:
   Enabled: true
+
 AccessorMethodName:
   Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
 Style/Documentation:
   Enabled: false
+
 Style/FrozenStringLiteralComment:
   Enabled: false
+
 Style/AsciiComments:
   Enabled: false
+
 Style/PercentLiteralDelimiters:
   Enabled: false
+  
 Metrics/LineLength:
   Max: 130
