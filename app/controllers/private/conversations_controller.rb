@@ -1,6 +1,5 @@
 class Private::ConversationsController < ApplicationController
-  
-  def create
+  def create # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
     recipient_id = Post.find(params[:post_id]).user.id
     conversation = Private::Conversation.new(sender_id: current_user.id,
                                              recipient_id: recipient_id)
@@ -9,11 +8,11 @@ class Private::ConversationsController < ApplicationController
                               conversation_id: conversation.id,
                               body: params[:message_body])
       respond_to do |format|
-        format.js {render partial: 'posts/show/contact_user/message_form/success'}
+        format.js { render partial: 'posts/show/contact_user/message_form/success' }
       end
     else
       respond_to do |format|
-        format.js {render partial: 'posts/show/contact_user/message_form/fail'}
+        format.js { render partial: 'posts/show/contact_user/message_form/fail' }
       end
     end
   end
