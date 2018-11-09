@@ -32,6 +32,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'faker'
 gem 'will_paginate'
+gem 'gon'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
