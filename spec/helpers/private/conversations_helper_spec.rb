@@ -16,7 +16,7 @@ RSpec.describe Private::ConversationsHelper, type: :helper do
 
     it "returns load_messages partial's path" do
       create(:private_message, conversation_id: conversation.id)
-      expect(helper.load_private_messages(conversation)).to eq('private/conversations/conversation/messages_list/link_to_previous_messages')
+      expect(helper.load_private_messages(conversation)).to eq('private/conversations/conversation/messages_list/link_to_previous_messages') # rubocop:disable Metrics/LineLength
     end
 
     it "returns empty partial's path" do

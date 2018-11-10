@@ -1,7 +1,6 @@
 module Shared::MessagesHelper
-
   def append_previous_messages_partial_path
-    'shared/load_more_messages/window/append_messages' 
+    'shared/load_more_messages/window/append_messages'
   end
 
   def remove_link_to_messages
@@ -9,7 +8,7 @@ module Shared::MessagesHelper
       if @messages_to_display_offset != 0
         'shared/empty_partial'
       else
-        'shared/load_more_messages/window/remove_more_messages_link' 
+        'shared/load_more_messages/window/remove_more_messages_link'
       end
     else
       'shared/empty_partial'
