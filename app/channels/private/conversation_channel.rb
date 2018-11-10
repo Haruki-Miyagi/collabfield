@@ -8,4 +8,11 @@ class Private::ConversationChannel < ApplicationCable::Channel
     # 全てを unsubscribe (登録解除)
     stop_all_streams
   end
+
+  def send_message(data)
+    message_params = data['message'].each_with_object({}) do |el, hash|
+      hash[el['name']] = el['value']
+    end
+    Private::Message.create(message_params)
+  end
 end
