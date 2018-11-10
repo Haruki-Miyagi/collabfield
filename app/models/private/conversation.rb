@@ -14,9 +14,9 @@ class Private::Conversation < ApplicationRecord
     )
   }
 
-  scope :all_by_user, -> (user_id) do
+  scope :all_by_user, lambda { |user_id|
     where(recipient_id: user_id).or(where(sender_id: user_id))
-  end
+  }
 
   def opposed_user(user)
     user == recipient ? sender : recipient

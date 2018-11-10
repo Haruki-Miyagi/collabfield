@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Private::Conversation, type: :model do
+RSpec.describe Private::Conversation, type: :model do # rubocop:disable Metrics/BlockLength
   context 'Scopes' do
     it 'gets a conversation between users' do
       user1 = create(:user)
@@ -31,6 +31,6 @@ RSpec.describe Private::Conversation, type: :model do
       create_list(:private_conversation, 2, sender_id: user.id)
       conversations = Private::Conversation.all_by_user(user.id)
       expect(conversations.count).to eq 4
-    end 
+    end
   end
 end
