@@ -33,16 +33,16 @@ module Private::ConversationsHelper
   end
 
   def get_contact_record(recipient)
-    contact = Contact.find_by_users(current_user.id, recipient.id)
+    Contact.find_by_users(current_user.id, recipient.id) # rubocop:disable Rails/DynamicFindBy
   end
 
   # 受け入れられていない連絡先のステータスがあればそれを表示する
   def unaccepted_contact_request_partial_path(contact)
-    if unaccepted_contact_exists(contact) 
+    if unaccepted_contact_exists(contact)
       if request_sent_by_user(contact)
-        "private/conversations/conversation/request_status/sent_by_current_user"  
+        'private/conversations/conversation/request_status/sent_by_current_user'
       else
-        "private/conversations/conversation/request_status/sent_by_recipient" 
+        'private/conversations/conversation/request_status/sent_by_recipient'
       end
     else
       'shared/empty_partial'
@@ -53,7 +53,7 @@ module Private::ConversationsHelper
   # 反対のユーザーが連絡先になく、要求が存在しない場合
   def not_contact_no_request_partial_path(contact)
     if recipient_is_contact? == false && unaccepted_contact_exists(contact) == false
-      "private/conversations/conversation/request_status/send_request"
+      'private/conversations/conversation/request_status/send_request'
     else
       'shared/empty_partial'
     end

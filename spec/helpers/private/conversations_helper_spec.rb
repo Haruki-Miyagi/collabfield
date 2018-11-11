@@ -10,7 +10,7 @@ require 'rails_helper'
 #     end
 #   end
 # end
-RSpec.describe Private::ConversationsHelper, type: :helper do
+RSpec.describe Private::ConversationsHelper, type: :helper do # rubocop:disable Metrics/BlockLength
   context '#load_private_messages' do
     let(:conversation) { create(:private_conversation) }
 
@@ -43,7 +43,7 @@ RSpec.describe Private::ConversationsHelper, type: :helper do
     end
   end
 
-  context 'private scope' do
+  context 'private scope' do # rubocop:disable Metrics/BlockLength
     let(:current_user) { create(:user) }
     let(:recipient) { create(:user) }
 
@@ -113,13 +113,13 @@ RSpec.describe Private::ConversationsHelper, type: :helper do
     end
 
     context '#unaccepted_contact_request_partial_path' do
-      let(:contact) { contact = create(:contact) }
+      let(:contact) { create(:contact) }
 
       it "returns sent_by_current_user partial's path" do
         allow(helper).to receive(:unaccepted_contact_exists).and_return(true)
         allow(helper).to receive(:request_sent_by_user).and_return(true)
         expect(helper.unaccepted_contact_request_partial_path(contact)).to eq(
-          'private/conversations/conversation/request_status/sent_by_current_user' 
+          'private/conversations/conversation/request_status/sent_by_current_user'
         )
       end
 
@@ -140,7 +140,7 @@ RSpec.describe Private::ConversationsHelper, type: :helper do
     end
 
     context '#not_contact_no_request' do
-      let(:contact) { contact = create(:contact) }
+      let(:contact) { create(:contact) }
 
       it "returns send_request partial's path" do
         allow(helper).to receive(:recipient_is_contact?).and_return(false)
