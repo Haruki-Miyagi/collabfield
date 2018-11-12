@@ -1,6 +1,6 @@
 class Group::Message < ApplicationRecord
-  self.table_name = "group_messages"
-  
+  self.table_name = 'group_messages'
+
   serialize :seen_by, Array
   serialize :added_new_users, Array
 
@@ -17,7 +17,7 @@ class Group::Message < ApplicationRecord
 
   # 会話の前のメッセージを得る
   def previous_message
-    previous_message_index = self.conversation.messages.index(self) - 1
-    self.conversation.messages[previous_message_index]
+    previous_message_index = conversation.messages.index(self) - 1
+    conversation.messages[previous_message_index]
   end
 end

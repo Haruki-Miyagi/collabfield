@@ -31,7 +31,7 @@ class User < ApplicationRecord
 
   has_many :group_messages, class_name: 'Group::Message'
   has_and_belongs_to_many :group_conversations, class_name: 'Group::Conversation'
-  
+
   # すべての連絡先の取得
   def all_active_contacts
     accepted_sent_contact_requests | accepted_received_contact_requests
