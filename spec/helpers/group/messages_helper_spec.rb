@@ -10,7 +10,7 @@ require 'rails_helper'
 #     end
 #   end
 # end
-RSpec.describe Group::MessagesHelper, type: :helper do
+RSpec.describe Group::MessagesHelper, type: :helper do # rubocop:disable Metrics/BlockLength
   context '#group_message_seen_by' do
     let(:message) { create(:group_message) }
     it 'returns an array with users' do
@@ -29,7 +29,7 @@ RSpec.describe Group::MessagesHelper, type: :helper do
     end
   end
 
-  context '#message_content_partial_path' do
+  context '#message_content_partial_path' do # rubocop:disable Metrics/BlockLength
     let(:user) { create(:user) }
     let(:message) { create(:group_message) }
     let(:previous_message) { create(:group_message) }
