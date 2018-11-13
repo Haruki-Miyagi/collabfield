@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Group::Message, type: :model do
+RSpec.describe Group::Message, type: :model do # rubocop:disable Metrics/BlockLength
   let(:message) { build(:group_message) }
 
   context 'Associations' do

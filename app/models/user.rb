@@ -29,8 +29,8 @@ class User < ApplicationRecord
            through: :all_received_contact_requests,
            source: :user
 
-  has_many :group_messages, class_name: 'Group::Message'
-  has_and_belongs_to_many :group_conversations, class_name: 'Group::Conversation'
+  has_many :group_messages, class_name: 'Group::Message', dependent: :destroy
+  has_and_belongs_to_many :group_conversations, class_name: 'Group::Conversation' # rubocop:disable Rails/HasAndBelongsToMany
 
   # すべての連絡先の取得
   def all_active_contacts

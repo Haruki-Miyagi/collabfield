@@ -4,7 +4,7 @@ class Group::Message < ApplicationRecord
   serialize :seen_by, Array
   serialize :added_new_users, Array
 
-  belongs_to  :conversation,
+  belongs_to  :conversation, # rubocop:disable Rails/InverseOf
               class_name: 'Group::Conversation',
               foreign_key: 'conversation_id'
   belongs_to :user

@@ -5,7 +5,7 @@ class Group::NewConversationService
     @new_user_id = params[:new_user_id]
   end
 
-  def call
+  def call # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
     creator = User.find(@creator_id)
     pchat_opposed_user = Private::Conversation.find(@private_conversation_id)
                                               .opposed_user(creator)
@@ -14,7 +14,7 @@ class Group::NewConversationService
     new_group_conversation.name = '' + creator.name + ', ' +
                                   pchat_opposed_user.name + ', ' +
                                   new_user_to_chat.name
-    if new_group_conversation.save
+    if new_group_conversation.save # rubocop:disable Style/GuardClause
       arr_of_users_ids = [creator.id, pchat_opposed_user.id, new_user_to_chat.id]
       # 会話にユーザーを追加する
       creator.group_conversations << new_group_conversation
@@ -30,7 +30,7 @@ class Group::NewConversationService
   private
 
   def create_initial_message(creator, arr_of_users_ids, new_group_conversation)
-    message = Group::Message.create(
+    Group::Message.create(
       user_id: creator.id,
       content: 'Conversation created by ' + creator.name,
       added_new_users: arr_of_users_ids,
