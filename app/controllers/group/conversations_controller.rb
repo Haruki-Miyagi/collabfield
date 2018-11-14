@@ -2,7 +2,6 @@ class Group::ConversationsController < ApplicationController
   def create
     @conversation = create_group_conversation
     add_to_conversations unless already_added?
-
     respond_to do |format|
       format.js
     end
@@ -26,7 +25,6 @@ class Group::ConversationsController < ApplicationController
 
   def close
     @conversation = Group::Conversation.find(params[:id])
-
     session[:group_conversations].delete(@conversation.id)
 
     respond_to do |format|

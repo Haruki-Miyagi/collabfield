@@ -8,7 +8,7 @@ class Group::ConversationChannel < ApplicationCable::Channel
   end
 
   def set_as_seen(data)
-    # 会話を見つけ、最後のメッセージを見て設定する
+    # find a conversation and set its last message as seen
     conversation = Group::Conversation.find(data['conv_id'])
     last_message = conversation.messages.last
     last_message.seen_by << current_user.id
