@@ -1,8 +1,4 @@
 module Shared::MessagesHelper
-  def append_previous_messages_partial_path
-    'shared/load_more_messages/window/append_messages'
-  end
-
   def remove_link_to_messages
     if @is_messenger == 'false'
       if @messages_to_display_offset != 0
@@ -27,6 +23,15 @@ module Shared::MessagesHelper
       end
     else
       'shared/empty_partial'
+    end
+  end
+
+  def append_previous_messages_partial_path
+    # メッセンジャーで会話が開かれている場合
+    if @is_messenger == 'true'
+      'shared/load_more_messages/messenger/append_messages'
+    else
+      'shared/load_more_messages/window/append_messages'
     end
   end
 end

@@ -1,0 +1,9 @@
+// 一時的に負荷を削除するmore messages link
+// 新しいメッセージがまだレンダリングされない場合はクリックできません
+$('body .conversation .messages-list .load-more-messages')
+    .replaceWith('<span class="load-more-messages"></span>');
+// 以前のメッセージを表示する
+$('body .conversation .messages-list ul')
+    .prepend('<%= j render "#{@type}/conversations/messages" %>');
+// 新しいメッセージが追加された後、スクロールバーの上部に空白を残します
+$('body .conversation .messages-list').scrollTop(400);

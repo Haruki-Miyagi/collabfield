@@ -59,12 +59,4 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:content, :title, :category_id).merge(user_id: current_user.id)
   end
-
-  def redirect_if_not_signed_in
-    redirect_to root_path unless user_signed_in?
-  end
-
-  def redirect_if_signed_in
-    redirect_to root_path if user_signed_in?
-  end
 end
